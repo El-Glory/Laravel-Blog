@@ -10,10 +10,10 @@
 </head>
 
 <body class="bg-gray-100">
-    <nav class="flex p-4 bg-white justify-center">
-        <ul class="flex items-center">
+    <nav class="flex p-3 bg-white justify-center sticky top-0 z-50">
+        <ul class="flex items-center ">
             <li>
-                <a href="" class="p-3">HOME</a>
+                <a href="" class="p-3 relative">HOME</a>
             </li>
         </ul>
         <ul class="flex items-center">

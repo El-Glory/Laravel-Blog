@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        dd('aabc');
+        // dd('aabc');
         return view('auth.login');
     }
 
@@ -20,5 +20,11 @@ class LoginController extends Controller
             'email' => 'required| email',
             "password" => 'required'
         ]);
+
+        if (!auth()->attempt($request->only('email', 'password'), $request->remember)) {
+            return back()->with('status', 'Invalid login details');
+        }
+
+        return redirect()->route('home');
     }
 }
