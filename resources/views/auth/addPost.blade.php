@@ -6,6 +6,16 @@
         <form action="{{route('addPost')}}" method="post" class="mb-4 mt-3" enctype="multipart/form-data">
             @csrf
             <div class="mb-4">
+                <label for="title" class="sr-only">Title</label>
+                <input name="title" id="title" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('title') border-red-500 @enderror" placeholder="Post Title"></input>
+
+                @error('title')
+                <div class="text-red-500 mt-2 text-sm">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
+            <div class="mb-4">
                 <label for="body" class="sr-only">Body</label>
                 <textarea name="body" id="body" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('body') border-red-500 @enderror" placeholder="Post something"></textarea>
 

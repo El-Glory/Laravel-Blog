@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\addPostController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,7 @@ Route::post('/admin/logout', [LogoutController::class, 'store'])->name('logout')
 Route::get('/admin/addPost', [addPostController::class, 'index'])->name('addPost');
 Route::post('/admin/addPost', [addPostController::class, 'store']);
 
+Route::get('/posts/{post:title}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('/', function () {
     return view('posts.index');

@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 
-<body class="bg-gray-100">
-    <nav class="flex p-3 bg-white justify-center sticky top-0 z-50">
+<body class="bg-white">
+    <nav class="flex p-3 bg-gray-100 justify-center sticky top-0 z-50 shadow-lg mt-2">
         <ul class="flex items-center ">
             <li>
                 <a href="" class="p-3 relative">HOME</a>
