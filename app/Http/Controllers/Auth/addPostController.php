@@ -27,7 +27,7 @@ class addPostController extends Controller
         ]);
 
         $imagePath = request('image')->store('uploads', 'public');
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(3600, 3600);
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(3600, 7000);
         $image->save();
 
         $request->user()->posts()->create([
@@ -38,6 +38,6 @@ class addPostController extends Controller
 
 
 
-        return back();
+        return redirect()->route('dashboard');
     }
 }

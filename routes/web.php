@@ -24,6 +24,8 @@ Route::get('/admin/home', function () {
 Route::get('/admin/login', [LoginController::class, 'index'])->name('login');
 Route::post('/admin/login', [LoginController::class, 'store']);
 
+Route::get('/admin/dashboard', [PostController::class, 'index'])->name('dashboard');
+
 Route::get('/admin/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/admin/register', [RegisterController::class, 'store']);
 
@@ -31,6 +33,11 @@ Route::post('/admin/logout', [LogoutController::class, 'store'])->name('logout')
 
 Route::get('/admin/addPost', [addPostController::class, 'index'])->name('addPost');
 Route::post('/admin/addPost', [addPostController::class, 'store']);
+
+Route::get('admin/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+Route::get('/admin/editPost/{post}', [PostController::class, 'edit'])->name('edit');
+Route::post('/admin/editPost/{post}', [PostController::class, 'update'])->name('post.update');
 
 Route::get('/posts/{post:title}', [PostController::class, 'show'])->name('posts.show');
 

@@ -17,7 +17,7 @@
     <nav class="flex p-4 bg-white justify-between mb-3">
         <ul class="flex items-center">
             <li>
-                <a href="" class="p-3">Dashboard</a>
+                <a href="{{route('dashboard')}}" class="p-3">Dashboard</a>
             </li>
             <li>
                 <a href="{{route('addPost')}}" class="p-3">Add Post</a>
