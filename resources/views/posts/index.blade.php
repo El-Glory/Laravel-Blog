@@ -2,7 +2,7 @@
 
 @section('content')
 
-@foreach(auth()->user()->posts as $post)
+@foreach($posts as $post)
 <div>
 
     <div class="mt-5 bg-white p-3 rounded-md p-6 w-7/12">

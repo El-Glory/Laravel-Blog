@@ -7,7 +7,7 @@
             @csrf
             <div class="mb-4">
                 <label for="title" class="sr-only">Title</label>
-                <input name="title" id="title" cols="30" rows="4" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('title') border-red-500 @enderror" placeholder="Post Title" value="{{old('title')}}"></input>
+                <input name="title" id="title" class="bg-gray-100 border-2 w-full p-4 rounded-lg @error('title') border-red-500 @enderror" placeholder="Post Title" value="{{old('title')}}"></input>
 
                 @error('title')
                 <div class="text-red-500 mt-2 text-sm">

@@ -45,7 +45,7 @@
 
             @else
             <div class="p-2">
-                <p class="flex justify-center italic">There are no todo lists</p>
+                <p class="flex justify-center italic">There are no posts at this time</p>
             </div>
 
             @endif

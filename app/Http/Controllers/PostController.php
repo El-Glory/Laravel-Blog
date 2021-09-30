@@ -11,6 +11,12 @@ class PostController extends Controller
     {
         $this->middleware(['auth'])->only(['index', 'destroy']);
     }
+
+    public function postIndex()
+    {
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
+    }
     public function index(Post $post)
     {
         return view('auth.dashboard')->with('post', $post);

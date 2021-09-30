@@ -24,7 +24,9 @@ Route::get('/admin/home', function () {
 Route::get('/admin/login', [LoginController::class, 'index'])->name('login');
 Route::post('/admin/login', [LoginController::class, 'store']);
 
+Route::get('/posts', [PostController::class, 'postIndex']);
 Route::get('/admin/dashboard', [PostController::class, 'index'])->name('dashboard');
+
 
 Route::get('/admin/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/admin/register', [RegisterController::class, 'store']);
@@ -40,7 +42,3 @@ Route::get('/admin/editPost/{post}', [PostController::class, 'edit'])->name('edi
 Route::post('/admin/editPost/{post}', [PostController::class, 'update'])->name('post.update');
 
 Route::get('/posts/{post:title}', [PostController::class, 'show'])->name('posts.show');
-
-Route::get('/', function () {
-    return view('posts.index');
-});
