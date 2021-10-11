@@ -13,7 +13,7 @@
     <div class="flex justify-center">
         <div class="w-4/12 bg-white rounded-lg shadow-lg">
             @if (session('status'))
-            <div class="bg-red-500 p-4 rounded-lg mb-3 text-white text-center">
+            <div class=" ml-6 bg-red-500 p-4 rounded-lg mt-3 text-white text-center w-10/12">
                 {{session('status')}}
             </div>
 
@@ -26,7 +26,7 @@
                     <input type="text" name="email" id="email" placeholder="Your Email Address" class="bg-gray-100 border-2 w-11/12 p-4 rounded-md @error('email') border-red-500 @enderror" value="{{old('email')}}">
 
                     @error('email')
-                    <div class="text-red-500 text-sm mt-2 text-center">
+                    <div class="text-red-500 text-sm mt-2 text-center ">
                         {{$message}}
                     </div>
 

@@ -21,24 +21,24 @@ use Illuminate\Support\Facades\Route;
 Route::get('/admin/home', function () {
     return view('auth.home');
 })->name('home');
-Route::get('/admin/login', [LoginController::class, 'index'])->name('login');
-Route::post('/admin/login', [LoginController::class, 'store']);
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'store']);
 
 Route::get('/posts', [PostController::class, 'postIndex']);
-Route::get('/admin/dashboard', [PostController::class, 'index'])->name('dashboard');
+Route::get('/dashboard', [PostController::class, 'index'])->name('dashboard');
 
 
-Route::get('/admin/register', [RegisterController::class, 'index'])->name('register');
-Route::post('/admin/register', [RegisterController::class, 'store']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
 
-Route::post('/admin/logout', [LogoutController::class, 'store'])->name('logout');
+Route::post('/logout', [LogoutController::class, 'store'])->name('logout');
 
-Route::get('/admin/addPost', [addPostController::class, 'index'])->name('addPost');
-Route::post('/admin/addPost', [addPostController::class, 'store']);
+Route::get('/addPost', [addPostController::class, 'index'])->name('addPost');
+Route::post('/addPost', [addPostController::class, 'store']);
 
-Route::get('admin/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::get('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
-Route::get('/admin/editPost/{post}', [PostController::class, 'edit'])->name('edit');
-Route::post('/admin/editPost/{post}', [PostController::class, 'update'])->name('post.update');
+Route::get('/editPost/{post}', [PostController::class, 'edit'])->name('edit');
+Route::post('/editPost/{post}', [PostController::class, 'update'])->name('post.update');
 
 Route::get('/posts/{post:title}', [PostController::class, 'show'])->name('posts.show');
