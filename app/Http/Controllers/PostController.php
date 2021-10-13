@@ -14,7 +14,7 @@ class PostController extends Controller
 
     public function postIndex()
     {
-        $posts = Post::all();
+        $posts = Post::all()->where('type', 'Public');
         return view('posts.index', compact('posts'));
     }
 

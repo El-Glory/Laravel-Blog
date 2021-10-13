@@ -17,7 +17,7 @@
             @foreach(auth()->user()->posts as $post)
             <div class="mb-4 bg-gray-200 p-4 rounded-lg justify-between flex">
                 <div>
-                    <p class="mb-2">{{$post->title}}</p><span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span>
+                    <p class="mb-2">{{$post->title}} ({{$post->type}})</p><span class="text-gray-600 text-sm">{{$post->created_at->diffForHumans()}}</span>
                 </div>
 
                 <div>
@@ -30,7 +30,7 @@
                         </ul>
 
 
-                        <form action="{{route('posts.destroy', $post)}}" method=" POST">
+                        <form action="{{route('post.destroy', $post)}}" method=" POST">
                             @method('DELETE')
                             @csrf
                             <button type="submit" class="bg-red-500 rounded-sm text-white px-1 py-1 font-sm rounded-sm">Delete</button>

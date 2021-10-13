@@ -25,6 +25,21 @@
                 </div>
                 @enderror
             </div>
+
+            <div class="mb-4">
+                <label for="type" class="sr-only">Post Type</label>
+                <select name="type" id="type" cols="30" rows="4" class="bg-gray-100 border-2 w-6/12 p-3 rounded-md @error('type') border-red-500 @enderror" value="{{old('type')}}">
+
+                    <option value="Public">Public</option>
+                    <option value="Private">Private</option>
+                </select>
+
+                @error('type')
+                <div class="text-red-500 mt-2 text-sm">
+                    {{$message}}
+                </div>
+                @enderror
+            </div>
             <div class="mb-4">
                 <label for="image" class="sr-only">Image</label>
                 <label class="w-64 flex flex-col items-center px-4 py-6 bg-white rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue-500 hover:text-white text-blue-500 ease-linear transition-all duration-150">

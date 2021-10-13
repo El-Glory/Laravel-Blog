@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Notifications\Notifiable;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Laravelista\Comments\Commentable;
@@ -9,7 +11,7 @@ use Laravelista\Comments\Commentable;
 
 class Post extends Model
 {
-    use HasFactory, Commentable;
+    use HasFactory, Commentable, Notifiable;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,15 +21,11 @@ class Post extends Model
         'title',
         'body',
         'image',
-        'user_id'
+        'user_id',
+        'type'
     ];
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-    // public function comments()
-    // {
-    //     return $this->hasMany(Comment::class);
-    // }
 }
