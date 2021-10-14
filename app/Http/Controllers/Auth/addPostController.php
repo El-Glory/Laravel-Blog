@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\SendNotification;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
@@ -20,8 +21,9 @@ class addPostController extends Controller
     {
         return view('auth.addPost');
     }
-    public function store(Request $request, Post $post)
+    public function store(Request $request)
     {
+
         //dd(request()->all());
         $data = $this->validate($request, [
             'title' => 'required',
@@ -43,13 +45,9 @@ class addPostController extends Controller
         ]);
 
         $postData->save();
-        $users = User::all();
 
         if ($postData->type == "Public") {
-            foreach ($users as $user) {
-                Notification::route('mail', $user->email) //Sending mail to user
-                    ->notify(new UserPost($post)); //With new post
-            }
+            SendNotification::dispatch($postData);
         };
         return redirect()->route('dashboard');
     }
